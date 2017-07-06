@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const removeWhitespace = require('remove-whitespace');
 
 const app = express();
 
@@ -25,13 +26,20 @@ app.post('/', (req, res, next) => {
       }
       return game.createAttempt({
         slackUserName: req.body.user_name,
-        combination: req.body.text
+        combination: removeWhitespace(req.body.text)
       })
     })
-    .then(() => {
-      res.send({
-        text: `Got it! Your attempt is ${req.body.text} and.. you lost!`
-      })
+    .then(attempt => attempt.isWinner())
+    .then(isWinner => {
+      if(isWinner) {
+        res.send({
+          text: `Got it! Your attempt is ${req.body.text} and.. you win! Golden briq shower for you`
+        })
+      } else {
+        res.send({
+          text: `Got it! Your attempt is ${req.body.text} and.. you lost!`
+        })
+      }
     })
 })
 

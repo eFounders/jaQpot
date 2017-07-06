@@ -20,6 +20,13 @@ const Attempt = sequelize.define('attempt', {
   }
 });
 
+Attempt.prototype.isWinner = function() {
+  return this.getGame().then(game => {
+    console.log('isWinner', this.combination, ' vs ', game.combination)
+    return this.combination === game.combination;
+  });
+}
+
 Game.hasMany(Attempt);
 Attempt.belongsTo(Game);
 

@@ -9,8 +9,10 @@ const Game = sequelize.define('game', {
     type: Sequelize.STRING
   }
 });
+Game.prototype.getJaqpotAmount = function() {
+  return this.getAttempts().then(attempts => attempts.length);
+}
 Game.findRunningOne = () => Game.findOne({ where: { status: 'running'}});
-
 const Attempt = sequelize.define('attempt', {
   slackUserName: {
     type: Sequelize.STRING

@@ -6,5 +6,5 @@
 - [x] data model
 - [x] receive and store attempt
 - [x] make a winner
-- [ ] plug to Briq
+- [x] plug to Briq
 - [ ] regularly start a game with random combination

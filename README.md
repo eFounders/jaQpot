@@ -2,7 +2,7 @@
 
 
 # Todo
-- [ ] communication with Slack (receive slack command)
+- [x] communication with Slack (receive slack command)
 - [ ] data model
 - [ ] start a game
 - [ ] receive attempt

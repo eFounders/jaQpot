@@ -1,0 +1,30 @@
+{
+  "name": "jaqpot",
+  "version": "1.0.0",
+  "description": "/attempt :",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lt": "lt -p 8080 -s jaqpot",
+    "start-dev": "npm run lt & npm run server",
+    "server": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexstrat/jaQpot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexstrat/jaQpot/issues"
+  },
+  "homepage": "https://github.com/alexstrat/jaQpot#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "localtunnel": "^1.8.3"
+  }
+}

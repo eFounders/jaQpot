@@ -3,7 +3,7 @@
 
 # Todo
 - [x] communication with Slack (receive slack command)
-- [ ] data model
+- [x] data model
 - [ ] start a game
 - [ ] receive attempt
 - [ ] make a winner

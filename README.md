@@ -8,3 +8,4 @@
 - [x] make a winner
 - [x] plug to Briq
 - [ ] regularly start a game with random combination
+- [ ] add more communication: announce a new game

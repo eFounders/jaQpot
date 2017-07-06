@@ -4,7 +4,7 @@
 # Todo
 - [x] communication with Slack (receive slack command)
 - [x] data model
-- [ ] start a game
-- [ ] receive attempt
+- [x] receive and store attempt
 - [ ] make a winner
-- [ ] plug to briq
+- [ ] plug to Briq
+- [ ] start a game with random combination

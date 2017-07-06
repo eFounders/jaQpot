@@ -9,6 +9,7 @@ const Game = sequelize.define('game', {
     type: Sequelize.STRING
   }
 });
+Game.findRunningOne = () => Game.findOne({ where: { status: 'running'}});
 
 const Attempt = sequelize.define('attempt', {
   slackUserName: {

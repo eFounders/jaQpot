@@ -13,11 +13,26 @@ app.get('/', function (req, res) {
   res.send('hello, world!')
 })
 
-app.post('/', (req, res) => {
-  console.log('The attemp is', req.body.text)
-  res.send({
-    text: `Got it! Your attempt is ${req.body.text} and.. you lost!`
-  })
+app.post('/', (req, res, next) => {
+  console.log(req.body)
+  models.Game.findRunningOne()
+    .then(game => {
+      if(!game) {
+        res.send({
+          text: 'No game for the moment :('
+        })
+        return;
+      }
+      return game.createAttempt({
+        slackUserName: req.body.user_name,
+        combination: req.body.text
+      })
+    })
+    .then(() => {
+      res.send({
+        text: `Got it! Your attempt is ${req.body.text} and.. you lost!`
+      })
+    })
 })
 
 const server = app.listen(8080, () => {
